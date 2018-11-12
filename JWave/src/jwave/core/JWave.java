@@ -3,7 +3,7 @@ package jwave.core;
 import java.io.*;
 
 public class JWave{
-   File f;
+   public File f;
    
    public int ChunkID;
    public int ChunkSize;
