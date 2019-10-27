@@ -178,4 +178,13 @@ public class JWave{
          e.printStackTrace();
       }
    }
+   
+   public InputStream getInputStream(){
+      try{
+         return(new FileInputStream(f));
+      }catch(Exception e){
+         System.out.println(e);
+      }
+      return(null);
+   }
 }
