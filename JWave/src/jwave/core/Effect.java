@@ -18,7 +18,7 @@ public class Effect {
 		Amplify.amplify(j,multiplier);
 	}
 	
-	public void normalize(JWave j){
+	public static void normalize(JWave j){
 		Normalize.normalize(j);
 	}
 }

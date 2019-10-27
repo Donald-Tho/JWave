@@ -23,6 +23,8 @@ public class JWave{
    
    
    
+   public JWave(){
+   }
    
    public JWave(File f){
       this.f = f;
@@ -102,6 +104,26 @@ public class JWave{
       return(data);
    }
    
+   public void setData(byte[] data){
+      this.data = data;
+   }
+   
+   public void setAttributes(JWave other){
+      this.ChunkID = other.ChunkID;
+      this.ChunkSize = other.ChunkSize;
+      this.Format = other.Format;
+      this.Subchunk1ID = other.Subchunk1ID;
+      this.Subchunk1Size = other.Subchunk1Size;
+      this.AudioFormat = other.AudioFormat;
+      this.NumChannels = other.NumChannels;
+      this.SampleRate = other.SampleRate;
+      this.ByteRate = other.ByteRate;
+      this.BlockAlign = other.BlockAlign;
+      this.BitsPerSample = other.BitsPerSample;
+      this.Subchunk2ID = other.Subchunk2ID;
+      this.Subchunk2Size = other.Subchunk2Size;
+   }
+   
    private void loadData(){
       try{
          FileInputStream fis = new FileInputStream(f);
@@ -148,6 +170,7 @@ public class JWave{
    public void writeAllData(){
       try{
          FileOutputStream fos = new FileOutputStream(f);
+         Subchunk2Size = data.length;
          writeAttributes(fos);
          writeData(fos);
          fos.close();
